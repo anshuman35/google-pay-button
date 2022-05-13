@@ -50,12 +50,18 @@ export class GooglePayButtonComponent implements OnInit, OnChanges {
     return this.manager.isReadyToPay;
   }
 
+ 
+
   ngOnInit(): Promise<void> {
     return this.manager.mount(this.elementRef.nativeElement);
   }
 
   ngOnChanges(): Promise<void> {
     return this.initializeButton();
+  }
+  
+  ngOnChanges():Promise<void>{
+    return this.runButtonId();
   }
 
   private initializeButton = debounce(() => {
